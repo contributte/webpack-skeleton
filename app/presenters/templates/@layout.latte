@@ -1,0 +1,27 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>{ifset title}{include title|stripHtml} | {/ifset}Nette + Webpack 4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {block head}{/block}
+</head>
+
+<body>
+<div class="container">
+    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+    {include content}
+</div>
+
+{block scripts}
+    <script src="{$basePath}/dist/app.bundle.js"></script>
+{/block}
+</body>
+</html>

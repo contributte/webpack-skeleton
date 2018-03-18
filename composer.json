@@ -1,0 +1,20 @@
+{
+	"name": "trainit/2018-03-nette-webpack",
+	"description": "Nette Framework + Webpack 4",
+	"type": "project",
+	"license": "MIT",
+	"require": {
+		"php": ">=7.1",
+		"nette/application": "^2.4.4",
+		"nette/bootstrap": "^2.4.3",
+		"nette/caching": "^2.5",
+		"nette/di": "^2.4",
+		"nette/finder": "^2.4",
+		"nette/forms": "^2.4",
+		"nette/http": "^2.4",
+		"nette/robot-loader": "^3.0",
+		"nette/utils": "^2.4",
+		"latte/latte": "^2.4",
+		"tracy/tracy": "^2.4"
+	}
+}

@@ -1,0 +1,41 @@
+{
+  "name": "2018-03-nette-webpack",
+  "version": "1.0.0",
+  "description": "Nette Framework + Webpack 4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trainit/2018-03-nette-webpack.git"
+  },
+  "keywords": [
+    "nette",
+    "framework",
+    "webpack"
+  ],
+  "author": "Milan Felix Sulc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trainit/2018-03-nette-webpack/issues"
+  },
+  "homepage": "https://github.com/trainit/2018-03-nette-webpack#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "naja": "^1.3.2",
+    "nette-forms": "^2.4.2",
+    "popper.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
+  },
+  "scripts": {
+    "dev": "webpack --mode development --watch --progress",
+    "build": "webpack --mode production"
+  }
+}
