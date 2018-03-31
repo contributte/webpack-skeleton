@@ -22,3 +22,30 @@
         Time is: {$datetime|date:'U'}
     </div>
 </div>
+
+<hr>
+
+{snippetArea #userFormBox}
+    <form n:name="userForm" class="ajax">
+
+        {snippet #userFormOk}
+            {php $form = $presenter['userForm']}
+            <div class="alert alert-success" n:if="$form->isSuccess()">Form OK!</div>
+        {/snippet}
+
+        {snippet #userFormError}
+            {php $form = $presenter['userForm']}
+            <div class="alert alert-danger" n:foreach="$form->getErrors() as $error">{$error}</div>
+        {/snippet}
+
+        <div class="form-group">
+            {label username /}
+            {input username, class => 'form-control', placeholder => 'Type your name'}
+        </div>
+        <div class="form-group">
+            {label age /}
+            {input age, class => 'form-control', placeholder => 'Type @'}
+        </div>
+        <button n:name="send">OK</button>
+    </form>
+{/snippetArea}
