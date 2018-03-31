@@ -9,6 +9,8 @@ These assets are compiled and bundled together with Webpack.
 
 ## Development
 
+- `git clone https://github.com/trainit/2018-03-nette-webpack.git`
+- `cp app/config/config.local.neon.dist app/config/config.local.neon`
 - `composer install`
 - `npm install`
 - `npm run dev`
