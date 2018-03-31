@@ -31,8 +31,8 @@
     "file-loader": "^1.1.11",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.12"
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
   },
   "scripts": {
     "dev": "webpack --mode development --watch --progress",
