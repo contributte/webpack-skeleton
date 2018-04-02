@@ -10,6 +10,8 @@
     <title>{ifset title}{include title|stripHtml} | {/ifset}Nette + Webpack 4</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {* This CSS bundle is generated via Webpack. See webpack.config.js *}
+    <link rel="stylesheet" href="{$basePath}/dist/app.bundle.css">
     {block head}{/block}
 </head>
 
@@ -21,6 +23,7 @@
 </div>
 
 {block scripts}
+    {* This JS bundle is generated via Webpack. See webpack.config.js *}
     <script src="{$basePath}/dist/app.bundle.js"></script>
 {/block}
 </body>

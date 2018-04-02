@@ -48,3 +48,11 @@ form .error {
     color: #D00;
     font-weight: bold;
 }
+
+.jumbotron {
+    padding: 1rem;
+}
+
+.tracy-box > .tracy-dump {
+    padding: 10px;
+}
