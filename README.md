@@ -20,10 +20,32 @@ These assets are compiled and bundled together with Webpack.
 
 - `npm run build`
 
-## Todo
+## Features
 
-- separate CSS classes
-- more examples (Vue?)
+- :+1: Webpack configuration
+    - :tada: extracting JS to single bundle
+    - :tada: extracting CSS to single file
+- :+1: Snippets
+    - :tada: few snippets
+- :+1: Nette Form
+    - :tada: AJAX submitting
+    - :tada: form builder
+        - empty value on control (`@` in email)
+        - validation rules (filled + email)
+        - simple filter (transform email to lowercase)
+        - onValidate / onSubmit / onSuccess
+    - :tada: manual rendering
+        - success snippet / error snippet
+        - required class on form-group
+        - description on control
+
+
+## Roadmap
+
+- :question: more bundles (front/admin/vendor)
+- :question: pure sendPayload method
+- :question: dynamic snippets ( + snippetArea )
+- :question: Vue.js component
 
 ## Result
 
