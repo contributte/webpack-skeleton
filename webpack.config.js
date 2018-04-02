@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
@@ -27,7 +28,10 @@ module.exports = {
                 },
             },
             {
-                test: /\.css$/, loader: 'style-loader!css-loader'
+                test: /\.css$/, use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ]
             },
             {
                 test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -50,6 +54,10 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
+            'window.Nette': 'nette-forms',
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].bundle.css",
         })
     ]
 };
