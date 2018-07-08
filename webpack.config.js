@@ -3,13 +3,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: {
-        app: './www/assets/app.js'
-    },
+    entry: ['./www/assets/app.js', './www/assets/app.scss'],
+
     output: {
         path: path.join(__dirname, 'www/dist'),
-        filename: '[name].bundle.js'
     },
+
     module: {
         rules: [
             {
@@ -34,6 +33,19 @@ module.exports = {
                 ]
             },
             {
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: false,
+                            importLoader: 2
+                        }
+                    },
+                    "sass-loader"
+                ]},
+            {
                 test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 use: 'url-loader?limit=10000',
             },
@@ -57,7 +69,7 @@ module.exports = {
             'window.Nette': 'nette-forms',
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].bundle.css",
+            filename: "[name].css",
         })
     ]
 };
