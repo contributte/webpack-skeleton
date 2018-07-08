@@ -17,3 +17,9 @@ temp/*
 
 # Node
 /node_modules
+
+# Package
+package-lock.json
+
+# PHPStorm
+.idea
