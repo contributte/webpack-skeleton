@@ -20,6 +20,13 @@ class HomepagePresenter extends BasePresenter
 		$this->redrawControl($box);
 	}
 
+	public function handleReloadAll(): void
+	{
+		$this->redrawControl('box1');
+		$this->redrawControl('box2');
+		$this->redrawControl('box3');
+	}
+
 	protected function createComponentUserForm(): Form
 	{
 		$form = new Form();
