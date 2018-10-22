@@ -32,8 +32,8 @@
     "mini-css-extract-plugin": "^0.4.0",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
   },
   "scripts": {
     "dev": "webpack --mode development --watch --progress",
