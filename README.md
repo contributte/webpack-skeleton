@@ -7,6 +7,10 @@ Naja is modern ES6-like library for Nette snippets ajaxification.
 
 These assets are compiled and bundled together with Webpack.
 
+## Requirements
+
+- PHP 7.3+
+
 ## Development
 
 - `git clone https://github.com/trainit/2018-03-nette-webpack.git`
