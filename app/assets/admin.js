@@ -5,7 +5,8 @@ import 'bootstrap';
 // Assets
 // These assets are extracted to [id].bundle.css using MiniCssExtractPlugin, see more on webpack.config.js
 import 'bootstrap/dist/css/bootstrap.css';
-import './css/style.css';
+import './theme/style.css';
 
-// Application
-import './js/naja';
+// UI tweaks
+import './ui/naja';
+import './pages/admin';
