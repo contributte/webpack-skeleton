@@ -1,4 +1,4 @@
-# Nette Framework + Webpack 4
+# Nette Framework 3.0 + Webpack 4
 
 This is just for education.
 
@@ -9,6 +9,7 @@ These assets are compiled and bundled together with Webpack.
 
 ## Requirements
 
+- Nette 3.0+
 - PHP 7.3+
 
 ## Development
@@ -26,9 +27,11 @@ These assets are compiled and bundled together with Webpack.
 
 ## Features
 
+- :+1: Nette 3.0
 - :+1: Webpack configuration
     - :tada: extracting JS to single bundle
     - :tada: extracting CSS to single file
+    - :tada: more bundles (front/admin/vendor)
 - :+1: Snippets
     - :tada: few snippets
 - :+1: Nette Form
@@ -43,10 +46,8 @@ These assets are compiled and bundled together with Webpack.
         - required class on form-group
         - description on control
 
-
 ## Roadmap
 
-- :question: more bundles (front/admin/vendor)
 - :question: pure sendPayload method
 - :question: dynamic snippets ( + snippetArea )
 - :question: Vue.js component
