@@ -187,8 +187,7 @@ module.exports = {
 						options: {
 							sourceMap: false,
 							importLoaders: 2,
-							modules: false,
-							localIdentName: '[name]_[local]_[hash:base64:5]'
+							modules: false
 						}
 					},
 					{
@@ -210,8 +209,7 @@ module.exports = {
 						options: {
 							sourceMap: false,
 							importLoaders: 2,
-							modules: false,
-							localIdentName: '[name]_[local]_[hash:base64:5]'
+							modules: false
 						}
 					},
 					{
