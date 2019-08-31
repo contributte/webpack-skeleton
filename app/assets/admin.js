@@ -9,4 +9,3 @@ import './theme/style.css';
 
 // UI tweaks
 import './ui/naja';
-import './pages/admin';
