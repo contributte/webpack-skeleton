@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "latte/latte",
-            "version": "v2.5.2",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "c41020789756c044deb4d5d535855405c421ad08"
+                "reference": "211bec057917e1d771aa09fc334cde1229738860"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/c41020789756c044deb4d5d535855405c421ad08",
-                "reference": "c41020789756c044deb4d5d535855405c421ad08",
+                "url": "https://api.github.com/repos/nette/latte/zipball/211bec057917e1d771aa09fc334cde1229738860",
+                "reference": "211bec057917e1d771aa09fc334cde1229738860",
                 "shasum": ""
             },
             "require": {
@@ -30,6 +30,8 @@
             },
             "require-dev": {
                 "nette/tester": "~2.0",
+                "nette/utils": "^3.0",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "^2.3"
             },
             "suggest": {
@@ -76,7 +78,7 @@
                 "template",
                 "twig"
             ],
-            "time": "2019-07-16T16:19:33+00:00"
+            "time": "2019-12-11T19:48:05+00:00"
         },
         {
             "name": "nette/application",
