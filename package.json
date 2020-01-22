@@ -19,7 +19,7 @@
 	"homepage": "https://github.com/trainit/2018-03-nette-webpack#readme",
 	"dependencies": {
 		"@sentry/browser": "^5.11.0",
-		"axios": "^0.19.1",
+		"axios": "^0.19.2",
 		"bootstrap": "^4.4.1",
 		"jquery": "^3.4.1",
 		"naja": "^1.7.0",
