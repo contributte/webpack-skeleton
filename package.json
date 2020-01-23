@@ -24,7 +24,7 @@
 		"jquery": "^3.4.1",
 		"naja": "^1.7.0",
 		"nette-forms": "^3.0.3",
-		"popper.js": "^1.16.0",
+		"popper.js": "^1.16.1",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
