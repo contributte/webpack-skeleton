@@ -38,7 +38,7 @@
 		"babel-loader": "^8.0.5",
 		"cache-loader": "^4.1.0",
 		"compression-webpack-plugin": "^3.0.1",
-		"cross-env": "^6.0.3",
+		"cross-env": "^7.0.0",
 		"css-loader": "^3.4.1",
 		"eslint": "^6.8.0",
 		"file-loader": "^5.0.2",
