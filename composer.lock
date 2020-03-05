@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "latte/latte",
-            "version": "v2.6.0",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "6e3185d8e00f0f212733360a6590e3ffb46fcb5c"
+                "reference": "bb3e57a815cb48ed282671ec206caae531aa2985"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/6e3185d8e00f0f212733360a6590e3ffb46fcb5c",
-                "reference": "6e3185d8e00f0f212733360a6590e3ffb46fcb5c",
+                "url": "https://api.github.com/repos/nette/latte/zipball/bb3e57a815cb48ed282671ec206caae531aa2985",
+                "reference": "bb3e57a815cb48ed282671ec206caae531aa2985",
                 "shasum": ""
             },
             "require": {
@@ -36,6 +36,7 @@
             },
             "suggest": {
                 "ext-fileinfo": "to use filter |datastream",
+                "ext-iconv": "to use filters |reverse, |substring",
                 "ext-mbstring": "to use filters like lower, upper, capitalize, ...",
                 "nette/utils": "to use filter |webalize"
             },
@@ -53,8 +54,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -78,7 +79,7 @@
                 "template",
                 "twig"
             ],
-            "time": "2020-01-03T22:37:05+00:00"
+            "time": "2020-03-04T09:44:23+00:00"
         },
         {
             "name": "nette/application",
