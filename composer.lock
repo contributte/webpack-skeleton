@@ -576,28 +576,30 @@
         },
         {
             "name": "nette/http",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/http.git",
-                "reference": "1df063526343299ea7fccdf90de6575db3559ff5"
+                "reference": "e4d8d360c66c8af9512ca13ab629d312af2b3ce3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/http/zipball/1df063526343299ea7fccdf90de6575db3559ff5",
-                "reference": "1df063526343299ea7fccdf90de6575db3559ff5",
+                "url": "https://api.github.com/repos/nette/http/zipball/e4d8d360c66c8af9512ca13ab629d312af2b3ce3",
+                "reference": "e4d8d360c66c8af9512ca13ab629d312af2b3ce3",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^3.0",
+                "nette/utils": "^3.1",
                 "php": ">=7.1"
             },
             "conflict": {
-                "nette/di": "<3.0.0-stable"
+                "nette/di": "<3.0.3"
             },
             "require-dev": {
                 "nette/di": "^3.0",
+                "nette/security": "^3.0",
                 "nette/tester": "^2.0",
+                "phpstan/phpstan": "^0.12",
                 "tracy/tracy": "^2.4"
             },
             "suggest": {
@@ -618,8 +620,8 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
+                "GPL-2.0-only",
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -644,7 +646,7 @@
                 "session",
                 "url"
             ],
-            "time": "2019-10-31T15:07:40+00:00"
+            "time": "2020-03-31T13:31:41+00:00"
         },
         {
             "name": "nette/neon",
