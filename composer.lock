@@ -505,16 +505,16 @@
         },
         {
             "name": "nette/forms",
-            "version": "v3.0.4",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/forms.git",
-                "reference": "fdedfc2619d75bc2f5999d03acb982557966ae56"
+                "reference": "ec3633f01989c1ab42bd6502f76035ae5bf8c0c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/forms/zipball/fdedfc2619d75bc2f5999d03acb982557966ae56",
-                "reference": "fdedfc2619d75bc2f5999d03acb982557966ae56",
+                "url": "https://api.github.com/repos/nette/forms/zipball/ec3633f01989c1ab42bd6502f76035ae5bf8c0c0",
+                "reference": "ec3633f01989c1ab42bd6502f76035ae5bf8c0c0",
                 "shasum": ""
             },
             "require": {
@@ -527,7 +527,8 @@
                 "nette/di": "<3.0-stable"
             },
             "require-dev": {
-                "latte/latte": "^2.7",
+                "latte/latte": "^2.8",
+                "nette/application": "^3.0",
                 "nette/di": "^3.0",
                 "nette/tester": "^2.0",
                 "phpstan/phpstan-nette": "^0.12",
@@ -570,7 +571,7 @@
                 "nette",
                 "validation"
             ],
-            "time": "2020-04-20T12:59:01+00:00"
+            "time": "2020-06-06T13:38:25+00:00"
         },
         {
             "name": "nette/http",
