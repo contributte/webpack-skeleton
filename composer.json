@@ -12,7 +12,7 @@
 		"nette/finder": "~2.5.0",
 		"nette/forms": "~3.0.1",
 		"nette/http": "~3.0.2",
-		"nette/robot-loader": "~3.2.0",
+		"nette/robot-loader": "~3.3.0",
 		"nette/utils": "~3.1.1",
 		"latte/latte": "~2.8.1",
 		"tracy/tracy": "~2.7.1"
