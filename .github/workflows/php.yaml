@@ -1,0 +1,73 @@
+name: "PHP"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "master"
+  schedule:
+    - cron: "0 8 * * 1" # At 08:00 on Monday
+
+env:
+  extensions: ""
+  cacheVersion: "1"
+
+jobs:
+  install:
+    name: "Install"
+    runs-on: "${{ matrix.operating-system }}"
+
+    strategy:
+      matrix:
+        php-versions: ["7.4"]
+        operating-system: ["ubuntu-latest"]
+      fail-fast: false
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Setup PHP cache environment"
+        id: "extcache"
+        uses: "shivammathur/cache-extensions@v1"
+        with:
+          php-version: "${{ matrix.php-versions }}"
+          extensions: "${{ env.extensions }}"
+          key: "${{ env.cacheVersion }}"
+
+      - name: "Cache PHP extensions"
+        uses: "actions/cache@v2"
+        with:
+          path: "${{ steps.extcache.outputs.dir }}"
+          key: "${{ steps.extcache.outputs.key }}"
+          restore-keys: "${{ steps.extcache.outputs.key }}"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php-versions }}"
+          extensions: "${{ env.extensions }}"
+
+      - name: "Get Composer cache directory"
+        id: "composercache"
+        run: 'echo "::set-output name=dir::$(composer config cache-files-dir)"'
+
+      - name: "Cache PHP dependencies"
+        uses: "actions/cache@v2"
+        with:
+          path: "${{ steps.composercache.outputs.dir }}"
+          key: "${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "${{ runner.os }}-composer-"
+
+      - name: "Validate Composer"
+        run: "composer validate"
+
+      - name: "Install dependencies"
+        run: "composer install --no-interaction --no-progress"
+
+      - name: "Cache Codesniffer data"
+        uses: "actions/cache@v2"
+        with:
+          path: "temp/codesniffer.dat"
+          key: "${{ runner.os }}-codesniffer"
+          restore-keys: "${{ runner.os }}-codesniffer"
