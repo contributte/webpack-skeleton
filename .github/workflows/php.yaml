@@ -9,7 +9,7 @@ on:
     - cron: "0 8 * * 1" # At 08:00 on Monday
 
 env:
-  extensions: ""
+  extensions: "json"
   cacheVersion: "1"
 
 jobs:
