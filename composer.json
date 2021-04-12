@@ -1,22 +1,36 @@
 {
-	"name": "trainit/2018-03-nette-webpack",
-	"description": "Nette Framework + Webpack 4",
-	"type": "project",
-	"license": "MIT",
-	"require": {
-		"php": ">7.4",
-		"nette/application": "^3.0.4",
-		"nette/bootstrap": "^3.0.0",
-		"nette/caching": "^3.0.0",
-		"nette/di": "^3.0.3",
-		"nette/finder": "^2.5.0",
-		"nette/forms": "^3.0.1",
-		"nette/http": "^3.0.2",
-		"nette/robot-loader": "^3.3.0",
-		"nette/utils": "^3.1.1",
-		"latte/latte": "^2.8.1",
-		"tracy/tracy": "^2.7.1"
-	},
-	"prefer-stable": true,
-	"minimum-stability": "dev"
+  "name": "contributte/webpack-skeleton",
+  "description": "Webpack 4 project skeleton based on Nette Framework (@nette) and Contributte (@contributte) libraries by @f3l1x.",
+  "keywords": [
+    "php",
+    "nette",
+    "contributte",
+    "sandbox",
+    "project",
+    "skeleton",
+    "web"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "contributte/application": "^0.5.0",
+    "contributte/bootstrap": "^0.5.0",
+    "contributte/di": "^0.5.0",
+    "contributte/forms": "^0.5.0",
+    "contributte/http": "^0.4.0",
+    "contributte/mail": "^0.6.0",
+    "contributte/utils": "^0.5.0",
+    "contributte/latte": "^0.5.0",
+    "contributte/tracy": "^0.5.0",
+    "nette/robot-loader": "~3.4.0"
+  },
+  "require-dev": {
+    "ninjify/qa": "^0.12",
+    "ninjify/nunjuck": "^0.4",
+    "contributte/dev": "^0.3"
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev"
 }
+  

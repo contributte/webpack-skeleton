@@ -26,7 +26,7 @@
     <hr>
     <form n:name="userForm" class="ajax">
 
-        {snippet #userFormOk}
+        {snippet userFormOk}
             {php $form = $presenter['userForm']}
             {if $form->isSuccess()}
             <div class="alert alert-success">Form OK!</div>
@@ -34,7 +34,7 @@
             {/if}
         {/snippet}
 
-        {snippet #userFormError}
+        {snippet userFormError}
             {php $form = $presenter['userForm']}
             <div class="alert alert-danger" n:foreach="$form->getErrors() as $error">{$error}</div>
         {/snippet}

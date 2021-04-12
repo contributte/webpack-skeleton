@@ -1,22 +1,7 @@
 {
-	"name": "2018-03-nette-webpack",
-	"version": "1.0.0",
-	"description": "Nette Framework + Webpack 4",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/trainit/2018-03-nette-webpack.git"
-	},
-	"keywords": [
-		"nette",
-		"framework",
-		"webpack"
-	],
+	"name": "webpack",
+	"version": "0.0.0",
 	"author": "Milan Felix Sulc",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/trainit/2018-03-nette-webpack/issues"
-	},
-	"homepage": "https://github.com/trainit/2018-03-nette-webpack#readme",
 	"dependencies": {
 		"@sentry/browser": "^5.20.1",
 		"axios": "^0.19.2",
