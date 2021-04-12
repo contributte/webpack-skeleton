@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"author": "Milan Felix Sulc",
 	"dependencies": {
-		"@sentry/browser": "^5.20.1",
+		"@sentry/browser": "^6.2.5",
 		"axios": "^0.21.1",
 		"bootstrap": "^4.5.0",
 		"jquery": "^3.5.1",
