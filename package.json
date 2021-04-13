@@ -45,7 +45,7 @@
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.2",
 		"webpack-merge": "^5.0.9",
-		"webpack-stats-plugin": "^0.3.2"
+		"webpack-stats-plugin": "^1.0.3"
 	},
 	"browserslist": [
 		"last 2 versions",
