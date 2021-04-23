@@ -3,15 +3,13 @@ const path = require("path");
 
 // Webpack
 const webpack = require("webpack");
-const { merge } = require("webpack-merge");
+const {merge} = require("webpack-merge");
 
 // Webpack plugins
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const {VueLoaderPlugin} = require("vue-loader");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 // Vue
 const VUE_VERSION = require("vue/package.json").version;
@@ -29,7 +27,7 @@ const WEBPACK_REPORT = process.env.WEBPACK_REPORT || false;
 
 // Config
 const ROOT_PATH = __dirname;
-const CACHE_PATH = ROOT_PATH + "/temp/webpack";
+const CACHE_PATH = ROOT_PATH + "/var/tmp/webpack";
 
 module.exports = {
 	mode: devMode ? "development" : "production",
@@ -43,15 +41,10 @@ module.exports = {
 		publicPath: "/dist/",
 		filename: '[name].bundle.js',
 	},
-	devtool: 'cheap-module-eval-source-map',
-	node: {
-		setImmediate: false,
-		process: 'mock',
-		dgram: 'empty',
-		fs: 'empty',
-		net: 'empty',
-		tls: 'empty',
-		child_process: 'empty'
+	devtool: 'cheap-module-source-map',
+	cache: {
+		type: 'filesystem',
+		cacheDirectory: path.resolve(CACHE_PATH, 'cache'),
 	},
 	module: {
 		noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
@@ -59,21 +52,7 @@ module.exports = {
 			{
 				test: /\.vue$/,
 				use: [
-					...!devMode ? [] : [
-						{
-							loader: 'cache-loader',
-							options: {
-								cacheDirectory: path.join(CACHE_PATH, "vue-loader"),
-								cacheIdentifier: [
-									process.env.NODE_ENV || 'development',
-									webpack.version,
-									VUE_VERSION,
-									VUE_LOADER_VERSION,
-								].join('|'),
-							}
-						}
-					],
-					...[{
+					{
 						loader: 'vue-loader',
 						options: {
 							compilerOptions: {
@@ -87,7 +66,7 @@ module.exports = {
 								VUE_LOADER_VERSION,
 							].join('|'),
 						}
-					}],
+					}
 				]
 			},
 			{
@@ -97,40 +76,17 @@ module.exports = {
 					!/\.vue\.js/.test(file)
 				),
 				use: [
-					...!devMode ? [] : [
-						{
-							loader: 'cache-loader',
-							options: {
-								cacheDirectory: path.join(CACHE_PATH, "babel-loader"),
-							}
-						},
-						{
-							loader: 'thread-loader',
-							options: {
-								workers: require('os').cpus().length - 1,
-							},
-						},
-					],
-					...[{
+					{
 						loader: 'babel-loader',
-					}],
+					}
 				]
 			},
 			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
-				use: [
-					...!devMode ? [] : [
-						{
-							loader: 'cache-loader',
-							options: {
-								cacheDirectory: path.join(CACHE_PATH, "ts-loader"),
-							}
-						},
-					],
-					...[{
-						loader: 'awesome-typescript-loader',
-					}],
+				use: [{
+					loader: 'awesome-typescript-loader',
+				}
 				]
 			},
 			{
@@ -193,8 +149,10 @@ module.exports = {
 					{
 						loader: "postcss-loader",
 						options: {
-							ident: "postcss",
-							plugins: [require("autoprefixer")]
+							postcssOptions: {
+								ident: "postcss",
+								plugins: [require("autoprefixer")]
+							}
 						}
 					},
 					"less-loader"
@@ -215,8 +173,10 @@ module.exports = {
 					{
 						loader: "postcss-loader",
 						options: {
-							ident: "postcss",
-							plugins: [require("autoprefixer")]
+							postcssOptions: {
+								ident: "postcss",
+								plugins: [require("autoprefixer")]
+							}
 						}
 					},
 					"sass-loader"
@@ -257,9 +217,6 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: !devMode ? "[name].[chunkhash:8].bundle.css" : "[name].bundle.css",
 		}),
-
-		// human webpack errors
-		new FriendlyErrorsWebpackPlugin(),
 	],
 };
 
@@ -283,13 +240,14 @@ if (process.env.NODE_ENV === "development") {
 		devServer: {
 			host: WEBPACK_DEV_SERVER_HOST,
 			port: WEBPACK_DEV_SERVER_PORT,
+			compress: true,
 			disableHostCheck: true,
 			contentBase: path.join(ROOT_PATH, "www"),
 			headers: {
 				"Access-Control-Allow-Origin": "*",
 				"Access-Control-Allow-Headers": "*",
 			},
-			stats: "errors-only",
+			stats: "minimal",
 			hot: true,
 			inline: true,
 			proxy: {
@@ -307,60 +265,14 @@ if (process.env.NODE_ENV === "production") {
 			filename: '[name].[contenthash:8].bundle.js',
 			chunkFilename: '[name].[contenthash:8].chunk.js'
 		},
-		devtool: "none",
+		devtool: "source-map",
 		optimization: {
 			minimizer: [
 				new TerserPlugin({
 					test: /\.m?js(\?.*)?$/i,
-					warningsFilter: () => true,
-					extractComments: false,
-					sourceMap: true,
-					cache: true,
-					cacheKeys: defaultCacheKeys => defaultCacheKeys,
-					parallel: true,
-					include: undefined,
-					exclude: undefined,
-					minify: undefined,
-					terserOptions: {
-						output: {
-							comments: /^\**!|@preserve|@license|@cc_on/i
-						},
-						compress: {
-							arrows: false,
-							collapse_vars: false,
-							comparisons: false,
-							computed_props: false,
-							hoist_funs: false,
-							hoist_props: false,
-							hoist_vars: false,
-							inline: false,
-							loops: false,
-							negate_iife: false,
-							properties: false,
-							reduce_funcs: false,
-							reduce_vars: false,
-							switches: false,
-							toplevel: false,
-							typeofs: false,
-							booleans: true,
-							if_return: true,
-							sequences: true,
-							unused: true,
-							conditionals: true,
-							dead_code: true,
-							evaluate: true
-						},
-						mangle: {
-							safari10: true
-						}
-					}
 				})
 			],
-		},
-		plugins: [
-			// optimize CSS files
-			new OptimizeCSSAssetsPlugin(),
-		],
+		}
 	};
 
 	module.exports = merge(module.exports, production);

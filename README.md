@@ -19,7 +19,7 @@ Website ðŸš€ <a href="https://contributte.org">contributte.org</a> | Contact ðŸ‘
 </p>
 
 <p align=center>
-	<img src="https://api.microlink.io?url=https%3A%2F%2Fexamples.contributte.org%2Fwebpack-skeleton%2F&overlay.browser=light&screenshot=true&meta=false&embed=screenshot.url"></img>
+	<img src="https://api.microlink.io?url=https%3A%2F%2Fexamples.contributte.org%2Fwebpack-skeleton%2F&overlay.browser=light&screenshot=true&meta=false&embed=screenshot.url">
 </p>
 
 -----
@@ -93,8 +93,14 @@ If you want start webpack development server with HRM, call `npm run dev`, open 
 
 ## Screenshots
 
-![Webpack](https://raw.githubusercontent.com/trainit/2018-03-nette-webpack/master/.docs/webpack.png)
+<p align=center>
+	<img src="https://raw.githubusercontent.com/contributte/webpack-skeleton/master/.docs/webpack.png">
+</p>
 
-![PHP](https://raw.githubusercontent.com/trainit/2018-03-nette-webpack/master/.docs/phpserver.png)
+<p align=center>
+	<img src="https://raw.githubusercontent.com/contributte/webpack-skeleton/master/.docs/phpserver.png">
+</p>
 
-![Web](https://raw.githubusercontent.com/trainit/2018-03-nette-webpack/master/.docs/web.png)
+<p align=center>
+	<img src="https://raw.githubusercontent.com/contributte/webpack-skeleton/master/.docs/web.png">
+</p>
