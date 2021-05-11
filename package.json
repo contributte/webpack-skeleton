@@ -32,7 +32,7 @@
 		"sass-loader": "^11.0.1",
 		"style-loader": "^2.0.0",
 		"terser-webpack-plugin": "^5.1.1",
-		"thread-loader": "^3.0.3",
+		"thread-loader": "^3.0.4",
 		"url-loader": "^4.1.0",
 		"vue-loader": "^15.9.3",
 		"vue-template-compiler": "^2.6.11",
