@@ -10,7 +10,7 @@
 		"naja": "^2.1.5",
 		"nette-forms": "^3.2.0",
 		"popper.js": "^1.16.1",
-		"vue": "^2.6.13"
+		"vue": "^2.6.14"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.14.3",
@@ -35,7 +35,7 @@
 		"thread-loader": "^3.0.4",
 		"url-loader": "^4.1.0",
 		"vue-loader": "^15.9.7",
-		"vue-template-compiler": "^2.6.13",
+		"vue-template-compiler": "^2.6.14",
 		"webpack": "^5.35.0",
 		"webpack-bundle-analyzer": "^4.4.2",
 		"webpack-cli": "^4.7.0",
