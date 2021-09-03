@@ -31,7 +31,7 @@
 		"raw-loader": "^4.0.1",
 		"sass-loader": "^12.1.0",
 		"style-loader": "^3.2.1",
-		"terser-webpack-plugin": "^5.2.1",
+		"terser-webpack-plugin": "^5.2.3",
 		"thread-loader": "^3.0.4",
 		"url-loader": "^4.1.0",
 		"vue-loader": "^16.5.0",
