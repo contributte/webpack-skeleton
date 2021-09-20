@@ -22,7 +22,7 @@
 		"awesome-typescript-loader": "^5.2.1",
 		"babel-loader": "^8.1.0",
 		"cross-env": "^7.0.2",
-		"css-loader": "^6.2.0",
+		"css-loader": "^6.3.0",
 		"eslint": "^7.32.0",
 		"file-loader": "^6.0.0",
 		"mini-css-extract-plugin": "^2.3.0",
