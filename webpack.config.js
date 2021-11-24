@@ -3,12 +3,12 @@ const path = require("path");
 
 // Webpack
 const webpack = require("webpack");
-const {merge} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 
 // Webpack plugins
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {VueLoaderPlugin} = require("vue-loader");
+const { VueLoaderPlugin } = require("vue-loader");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 // Vue
@@ -207,11 +207,11 @@ module.exports = {
 			Popper: ["popper.js", "default"],
 		}),
 
-		// prevent pikaday from including moment.js
-		new webpack.IgnorePlugin(/moment/, /pikaday/),
-
 		// ignore locales from moment.js
-		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+		new webpack.IgnorePlugin({
+			resourceRegExp: /^\.\/locale$/,
+			contextRegExp: /moment$/,
+		}),
 
 		// extract css
 		new MiniCssExtractPlugin({
