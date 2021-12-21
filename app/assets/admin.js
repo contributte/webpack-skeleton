@@ -9,3 +9,8 @@ import './theme/style.css';
 
 // UI tweaks
 import './ui/naja';
+
+// Webpack HMR
+if (module.hot) {
+	module.hot.accept();
+  }
