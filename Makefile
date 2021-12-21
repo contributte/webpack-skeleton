@@ -1,7 +1,7 @@
 ############################################################
 # PROJECT ##################################################
 ############################################################
-.PHONY: project install setup
+.PHONY: project install setup clean
 
 project: install setup
 
@@ -13,10 +13,14 @@ setup:
 	mkdir -p var/{tmp,log}
 	chmod +0777 var/{tmp,log}
 
+clean:
+	find var/tmp -mindepth 1 ! -name '.gitignore' -type f -or -type d -exec rm -rf {} +
+	find var/log -mindepth 1 ! -name '.gitignore' -type f -or -type d -exec rm -rf {} +
+
 ############################################################
 # DEVELOPMENT ##############################################
 ############################################################
-.PHONY: qa dev cs csf phpstan tests coverage dev spa
+.PHONY: qa dev cs csf phpstan tests coverage dev webpack build
 
 qa: cs phpstan
 
@@ -27,7 +31,7 @@ csf:
 	vendor/bin/codefixer app
 
 phpstan:
-	echo "OK"
+	vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=512M app
 
 tests:
 	echo "OK"
@@ -38,13 +42,15 @@ coverage:
 dev:
 	NETTE_DEBUG=1 NETTE_ENV=dev php -S 0.0.0.0:8000 -t www
 
-spa:
+webpack:
 	npm run dev
+
+build:
+	npm run build
 
 ############################################################
 # DEPLOYMENT ###############################################
 ############################################################
-.PHONY: build
+.PHONY: deploy
 
-build:
-	npm run start
+deploy: project build
