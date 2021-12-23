@@ -261,17 +261,11 @@ if (process.env.NODE_ENV === "development") {
 if (process.env.NODE_ENV === "production") {
 	const production = {
 		output: {
-			filename: '[name].[contenthash:8].bundle.js',
-			chunkFilename: '[name].[contenthash:8].chunk.js'
+			// uncomment for manifest loader
+			// filename: '[name].[contenthash:8].bundle.js',
+			// chunkFilename: '[name].[contenthash:8].chunk.js'
 		},
-		devtool: "source-map",
-		optimization: {
-			minimizer: [
-				new TerserPlugin({
-					test: /\.m?js(\?.*)?$/i,
-				})
-			],
-		}
+		devtool: "source-map"
 	};
 
 	module.exports = merge(module.exports, production);
