@@ -34,7 +34,7 @@ https://examples.contributte.org/webpack-skeleton/
 
 ## Installation
 
-You will need `PHP 7.4+` and [Composer](https://getcomposer.org/).
+You will need `PHP 8.0+` and [Composer](https://getcomposer.org/).
 
 Create project using composer.
 
@@ -42,9 +42,9 @@ Create project using composer.
 composer create-project -s dev contributte/webpack-skeleton acme
 ```
 
-Install Composer dependencies: `composer install`
+Install Composer dependencies: `composer install` or `make install`
 
-Install NPM dependencies: `npm install`
+Install NPM dependencies: `npm install` or `make install`
 
 Now you have application installed. It's time to run it.
 
@@ -58,6 +58,8 @@ The easiest way is to use php built-in web server.
 php -S 0.0.0.0:8000 -t www
 ```
 
+Or via `make dev`.
+
 Then visit [http://localhost:8000](http://localhost:8000) in your browser.
 
 **Frontend**
@@ -70,10 +72,12 @@ If you want build for production, call `npm run build`.
 
 If you want start webpack development server with HRM, call `npm run dev`, open [http://localhost:8080](http://localhost:8080) in your browser.
 
+Or via `make webpack`.
+
 ## Features
 
-- :+1: Nette 3.0
-- :+1: Webpack configuration
+- :+1: Nette 3+
+- :+1: Webpack 5+
     - :tada: extracting JS to single bundle
     - :tada: extracting CSS to single file
     - :tada: more bundles (front/admin/vendor)
@@ -104,3 +108,17 @@ If you want start webpack development server with HRM, call `npm run dev`, open 
 <p align=center>
 	<img src="https://raw.githubusercontent.com/contributte/webpack-skeleton/master/.docs/web.png">
 </p>
+
+## Development
+
+See [how to contribute](https://contributte.org/contributing.html) to this package.
+
+This package is currently maintaining by these authors.
+
+<a href="https://github.com/f3l1x">
+	<img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.org/partners.html) **contributte** development team. Also thank you for using this project.
