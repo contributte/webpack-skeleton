@@ -30,7 +30,10 @@
   "require-dev": {
     "ninjify/qa": "^0.13",
     "ninjify/nunjuck": "^0.4",
-    "contributte/dev": "^0.3"
+    "contributte/dev": "^0.3",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-nette": "^1.0",
+    "phpstan/phpstan-strict-rules": "^1.0"
   },
   "prefer-stable": true,
   "minimum-stability": "dev"

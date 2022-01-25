@@ -41,7 +41,7 @@ class ErrorPresenter implements IPresenter
 		$this->logger->log($e, ILogger::EXCEPTION);
 
 		return new CallbackResponse(function (IRequest $httpRequest, IResponse $httpResponse) {
-			if (preg_match('#^text/html(?:;|$)#', $httpResponse->getHeader('Content-Type'))) {
+			if (preg_match('#^text/html(?:;|$)#', (string) $httpResponse->getHeader('Content-Type'))) {
 				require __DIR__ . '/templates/Error/500.phtml';
 			}
 		});
