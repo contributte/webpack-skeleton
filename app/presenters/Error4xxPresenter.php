@@ -4,19 +4,23 @@ namespace App\Presenters;
 
 use Nette\Application\BadRequestException;
 use Nette\Application\Request;
+use Nette\Bridges\ApplicationLatte\Template;
 
+/**
+ * @property Template $template
+ */
 class Error4xxPresenter extends BasePresenter
 {
 
 	public function startup()
 	{
 		parent::startup();
-		if (!$this->getRequest()->isMethod(Request::FORWARD)) {
+		if (!$this->getRequest()?->isMethod(Request::FORWARD)) {
 			$this->error();
 		}
 	}
 
-	public function renderDefault(BadRequestException $exception)
+	public function renderDefault(BadRequestException $exception): void
 	{
 		// load template 403.latte or 404.latte or ... 4xx.latte
 		$file = __DIR__ . sprintf('/templates/Error/%s.latte', $exception->getCode());
