@@ -29,7 +29,7 @@
 		"node-sass": "^7.0.1",
 		"postcss-loader": "^6.2.1",
 		"raw-loader": "^4.0.1",
-		"sass-loader": "^12.4.0",
+		"sass-loader": "^12.5.0",
 		"style-loader": "^3.3.1",
 		"terser-webpack-plugin": "^5.3.1",
 		"thread-loader": "^3.0.4",
