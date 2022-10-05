@@ -4,7 +4,7 @@
 	"author": "Milan Felix Sulc",
 	"dependencies": {
 		"@sentry/browser": "^7.14.1",
-		"axios": "^0.27.2",
+		"axios": "^1.0.0",
 		"bootstrap": "^5.2.2",
 		"jquery": "^3.6.1",
 		"naja": "^2.5.0",
