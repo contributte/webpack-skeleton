@@ -20,7 +20,7 @@
 		"@babel/preset-env": "^7.19.4",
 		"autoprefixer": "^10.4.12",
 		"awesome-typescript-loader": "^5.2.1",
-		"babel-loader": "^8.2.5",
+		"babel-loader": "^9.0.0",
 		"cross-env": "^7.0.2",
 		"css-loader": "^6.7.1",
 		"eslint": "^8.26.0",
