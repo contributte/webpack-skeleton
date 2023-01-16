@@ -23,7 +23,7 @@
 		"babel-loader": "^9.1.2",
 		"cross-env": "^7.0.2",
 		"css-loader": "^6.7.3",
-		"eslint": "^8.31.0",
+		"eslint": "^8.32.0",
 		"file-loader": "^6.0.0",
 		"mini-css-extract-plugin": "^2.7.2",
 		"node-sass": "^8.0.0",
