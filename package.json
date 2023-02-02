@@ -10,7 +10,7 @@
 		"naja": "^2.5.0",
 		"nette-forms": "^3.3.1",
 		"popper.js": "^1.16.1",
-		"vue": "^3.2.45"
+		"vue": "^3.2.47"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.20.12",
