@@ -146,21 +146,21 @@
         },
         {
             "name": "contributte/di",
-            "version": "v0.5.4",
+            "version": "v0.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contributte/di.git",
-                "reference": "aea13b32567b9f01dc3acc1752c594e32286565f"
+                "reference": "2857d07b15c8d0136038f4daa6930c42491a6f6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contributte/di/zipball/aea13b32567b9f01dc3acc1752c594e32286565f",
-                "reference": "aea13b32567b9f01dc3acc1752c594e32286565f",
+                "url": "https://api.github.com/repos/contributte/di/zipball/2857d07b15c8d0136038f4daa6930c42491a6f6a",
+                "reference": "2857d07b15c8d0136038f4daa6930c42491a6f6a",
                 "shasum": ""
             },
             "require": {
                 "nette/di": "^3.1.0",
-                "nette/utils": "^3.2.8",
+                "nette/utils": "^3.2.8 || ^4.0",
                 "php": ">=7.2"
             },
             "conflict": {
@@ -168,7 +168,7 @@
             },
             "require-dev": {
                 "nette/bootstrap": "^3.1.4",
-                "nette/robot-loader": "^3.4.2",
+                "nette/robot-loader": "^3.4.2 || ^4.0",
                 "ninjify/nunjuck": "^0.4",
                 "ninjify/qa": "^0.13",
                 "phpstan/phpstan": "^1.9.11",
@@ -206,7 +206,7 @@
             ],
             "support": {
                 "issues": "https://github.com/contributte/di/issues",
-                "source": "https://github.com/contributte/di/tree/v0.5.4"
+                "source": "https://github.com/contributte/di/tree/v0.5.5"
             },
             "funding": [
                 {
@@ -218,7 +218,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-12T18:43:56+00:00"
+            "time": "2023-02-21T08:24:32+00:00"
         },
         {
             "name": "contributte/forms",
@@ -996,34 +996,31 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "046f89cc334ec08b6b2e04803bce011bbe6522f1"
+                "reference": "4799ee684453bf5e70df1e87bec80bfbfc0e7d13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/046f89cc334ec08b6b2e04803bce011bbe6522f1",
-                "reference": "046f89cc334ec08b6b2e04803bce011bbe6522f1",
+                "url": "https://api.github.com/repos/nette/di/zipball/4799ee684453bf5e70df1e87bec80bfbfc0e7d13",
+                "reference": "4799ee684453bf5e70df1e87bec80bfbfc0e7d13",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "nette/neon": "^3.3 || ^4.0",
                 "nette/php-generator": "^3.5.4 || ^4.0",
-                "nette/robot-loader": "^3.2",
-                "nette/schema": "^1.1",
-                "nette/utils": "^3.2.5",
+                "nette/robot-loader": "^3.2 || ~4.0.0",
+                "nette/schema": "^1.2",
+                "nette/utils": "^3.2.5 || ~4.0.0",
                 "php": ">=7.2 <8.3"
             },
-            "conflict": {
-                "nette/bootstrap": "<3.0"
-            },
             "require-dev": {
-                "nette/tester": "^2.2",
-                "phpstan/phpstan": "^0.12",
-                "tracy/tracy": "^2.3"
+                "nette/tester": "^2.4",
+                "phpstan/phpstan": "^1.0",
+                "tracy/tracy": "^2.9"
             },
             "type": "library",
             "extra": {
@@ -1065,9 +1062,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/di/issues",
-                "source": "https://github.com/nette/di/tree/v3.1.0"
+                "source": "https://github.com/nette/di/tree/v3.1.1"
             },
-            "time": "2022-12-14T11:19:09+00:00"
+            "time": "2023-01-16T03:38:02+00:00"
         },
         {
             "name": "nette/finder",
