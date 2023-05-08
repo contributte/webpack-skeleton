@@ -38,7 +38,7 @@
 		"vue-template-compiler": "^2.7.14",
 		"webpack": "^5.64.3",
 		"webpack-bundle-analyzer": "^4.8.0",
-		"webpack-cli": "^5.0.2",
+		"webpack-cli": "^5.1.0",
 		"webpack-dev-server": "^4.15.0",
 		"webpack-merge": "^5.8.0",
 		"webpack-stats-plugin": "^1.1.1"
