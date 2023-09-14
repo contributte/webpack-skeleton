@@ -5,7 +5,7 @@
 	"dependencies": {
 		"@sentry/browser": "^7.69.0",
 		"axios": "^1.4.0",
-		"bootstrap": "^5.3.1",
+		"bootstrap": "^5.3.2",
 		"jquery": "^3.7.1",
 		"naja": "^2.5.0",
 		"nette-forms": "^3.3.1",
