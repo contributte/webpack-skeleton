@@ -15,25 +15,23 @@
   "require": {
     "php": ">=8.0",
 
-    "contributte/application": "^0.5.0",
-    "contributte/bootstrap": "^0.6.0",
-    "contributte/di": "^0.5.0",
-    "contributte/forms": "^0.5.0",
-    "contributte/http": "^0.4.0",
-    "contributte/mail": "^0.7.0",
-    "contributte/utils": "^0.5.0",
-    "contributte/latte": "^0.5.0",
-    "contributte/tracy": "^0.5.0",
-
-    "nette/robot-loader": "~3.4.0"
+    "contributte/nella": "^0.2.0"
   },
   "require-dev": {
-    "ninjify/qa": "^0.13",
-    "ninjify/nunjuck": "^0.4",
-    "contributte/dev": "^0.3",
-    "phpstan/phpstan-deprecation-rules": "^1.0",
-    "phpstan/phpstan-nette": "^1.0",
-    "phpstan/phpstan-strict-rules": "^1.0"
+    "contributte/qa": "^0.3",
+    "contributte/tester": "^0.2",
+    "contributte/phpstan": "^0.1",
+    "contributte/dev": "^0.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
   },
   "prefer-stable": true,
   "minimum-stability": "dev",
