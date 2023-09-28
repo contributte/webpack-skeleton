@@ -1,21 +1,28 @@
 <?php declare(strict_types = 1);
 
-use Nette\Bootstrap\Configurator;
+namespace App;
 
-require __DIR__ . '/../vendor/autoload.php';
+use Contributte\Bootstrap\ExtraConfigurator;
+use Contributte\Nella\Boot\Bootloader;
+use Contributte\Nella\Boot\Preset\NellaPreset;
+use Nette\Application\Application;
 
-$configurator = new Configurator();
+final class Bootstrap
+{
 
-$configurator->setDebugMode(getenv('NETTE_DEBUG') === '1');
-$configurator->enableTracy(__DIR__ . '/../var/log');
+	public static function boot(): ExtraConfigurator
+	{
+		return Bootloader::create()
+			->use(NellaPreset::create(__DIR__))
+			->boot();
+	}
 
-$configurator->setTimeZone('Europe/Prague');
-$configurator->setTempDirectory(__DIR__ . '/../var/tmp');
+	public static function run(): void
+	{
+		self::boot()
+			->createContainer()
+			->getByType(Application::class)
+			->run();
+	}
 
-$configurator->createRobotLoader()
-	->addDirectory(__DIR__)
-	->register();
-
-$configurator->addConfig(__DIR__ . '/../config/config.neon');
-
-return $configurator->createContainer();
+}
