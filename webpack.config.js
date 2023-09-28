@@ -31,10 +31,10 @@ const CACHE_PATH = ROOT_PATH + "/var/tmp/webpack";
 
 module.exports = {
 	mode: devMode ? "development" : "production",
-	context: path.join(ROOT_PATH, "app/assets"),
+	context: path.join(ROOT_PATH, "assets"),
 	entry: {
-		front: path.join(ROOT_PATH, "app/assets/front.js"),
-		admin: path.join(ROOT_PATH, "app/assets/admin.js"),
+		front: path.join(ROOT_PATH, "assets/front.js"),
+		admin: path.join(ROOT_PATH, "assets/admin.js"),
 	},
 	output: {
 		path: path.join(ROOT_PATH, "www/dist"),
@@ -151,7 +151,7 @@ module.exports = {
 						options: {
 							postcssOptions: {
 								ident: "postcss",
-								plugins: [require("autoprefixer")]
+								plugins: [require("autoprefixer"), require('postcss-preset-env'), require('tailwindcss')]
 							}
 						}
 					},
@@ -175,7 +175,7 @@ module.exports = {
 						options: {
 							postcssOptions: {
 								ident: "postcss",
-								plugins: [require("autoprefixer")]
+								plugins: [require("autoprefixer"), require('postcss-preset-env'), require('tailwindcss')]
 							}
 						}
 					},
@@ -187,7 +187,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			"vue$": "vue/dist/vue.esm.js",
-			"@": path.resolve(__dirname, "app/assets"),
+			"@": path.resolve(__dirname, "assets"),
 		},
 		extensions: [".js", ".vue", ".ts", ".tsx"],
 		modules: [
