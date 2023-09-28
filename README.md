@@ -64,7 +64,7 @@ Then visit [http://localhost:8000](http://localhost:8000) in your browser.
 
 **Frontend**
 
-If you want compile assets, call `npm run start`.
+If you want to compile assets, call `npm run start`.
 
 If you need watcher, call `npm run watch`, it will watch your codebase and rebuild assets.
 
