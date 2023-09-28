@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{block #title|striptags}Webpack Skeleton{/}</title>
+
+	{block #head}
+		{* This CSS bundle is generated via Webpack. See webpack.config.js *}
+		<link rel="stylesheet" href="{$basePath}/dist/front.bundle.css">
+	{/block}
+</head>
+<body>
+
+<div class="antialiased px-6 text-gray-900">
+	<div class="divide-y max-w-xl md:max-w-4xl mx-auto">
+		<div class="py-8">
+			<h1 class="font-bold text-3xl">
+				Contributte / Webpack Skeleton
+			</h1>
+		</div>
+
+		<div n:if="$flashes !== []" n:inner-foreach="$flashes as $flash">
+			<div class="{$flash->type}">
+				{$flash->message}
+			</div>
+		</div>
+
+		<div class="py-8">
+			{include #content}
+		</div>
+
+		<div class="py-8">
+			&copy; {=date(Y)} by <a href="https://github.com/f3l1x" class="text-blue-600 underline">@f3l1x</a>
+		</div>
+	</div>
+</div>
+
+{block #scripts}
+	{* This JS bundle is generated via Webpack. See webpack.config.js *}
+	<script src="{$basePath}/dist/front.bundle.js"></script>
+{/block}
+</body>
+</html>
+
+
+

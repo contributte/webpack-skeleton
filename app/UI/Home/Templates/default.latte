@@ -1,0 +1,68 @@
+{block #content}
+<div><a class="text-blue-600" n:href="Admin:">Go to admin →</a></div>
+
+<div class="mt-8">Take a look at <code class="text-red-500 font-bold">webpack.config.js</code>.</div>
+
+<div class="mt-16">
+	<div class="text-2xl font-bold border-b border-gray-300">Snippets</div>
+	<div class="mt-4"><a class="ajax bg-green-600 text-white rounded-md px-2 py-1" n:href="reloadAll!">RELOAD ALL</a></div>
+
+	<div class="mt-8 grid grid-cols-3 gap-4">
+		<div class="border border-gray-300 p-4 rounded-md gap-2 grid grid-cols-1" n:snippet="box1">
+			<div>Box 1 <a class="ajax bg-blue-600 text-white rounded-md px-2 py-1" n:href="reload!, box => box1">RELOAD</a></div>
+			<div>Time is: {$datetime|date:'d.m.Y H:i:s'}</div>
+		</div>
+		<div class="border border-gray-300 p-4 rounded-md gap-2 grid grid-cols-1" n:snippet="box2">
+			<div>Box 2 <a class="ajax bg-blue-600 text-white rounded-md px-2 py-1" n:href="reload!, box => box2">RELOAD</a></div>
+			<div>Time is: {$datetime|date:'H:i:s'}</div>
+		</div>
+		<div class="border border-gray-300 p-4 rounded-md gap-2 grid grid-cols-1" n:snippet="box3">
+			<div>Box 3 <a class="ajax bg-blue-600 text-white rounded-md px-2 py-1" n:href="reload!, box => box3">RELOAD</a></div>
+			<div>Time is: {$datetime|date:'U'}</div>
+		</div>
+	</div>
+</div>
+
+<div class="mt-16">
+	<div class="text-2xl font-bold border-b border-gray-300">Forms</div>
+	<div class="max-w-md">
+		<form n:name="userForm" class="ajax">
+			{snippet userFormOk}
+				{php $form = $presenter['userForm']}
+				{if $form->isSuccess()}
+					<div class="text-green-600 font-bold">Form OK!</div>
+					<div class="p-4 border rounded-md">{=Tracy\Debugger::dump($form->values, true)|noescape}</div>
+				{/if}
+			{/snippet}
+
+			{snippet userFormError}
+				{php $form = $presenter['userForm']}
+				<div class="border border-red-700 bg-red-500 px-2 py-1 text-white rounded-md mt-4" n:foreach="$form->getErrors() as $error">
+					{$error}
+				</div>
+			{/snippet}
+
+			<div class="mt-8 grid grid-cols-1 gap-6">
+				<div n:class="form-group, $form['username']->required ? required, $form['username']->error ? has-error">
+					{label username /}
+					<input n:name="username" class="mt-1 block w-full">
+
+					<small class="form-text text-muted" n:ifcontent>{$form['username']->getOption('description')}</small>
+				</div>
+				<div n:class="form-group, $form['email']->required ? required, $form['email']->error ? has-error">
+					{label email /}
+					<input n:name="email" class="mt-1 block w-full">
+
+					<small class="form-text text-muted" n:ifcontent>{$form['email']->getOption('description')}</small>
+				</div>
+				<div n:class="form-group, $form['age']->required ? required, $form['age']->error ? has-error">
+					{label age /}
+					{input age, class => 'mt-1 block w-full'}
+
+					<small class="form-text text-muted" n:ifcontent>{$form['age']->getOption('description')}</small>
+				</div>
+				<button class="bg-green-600 text-white rounded-md px-2 py-1" n:name="send">OK</button>
+			</div>
+		</form>
+	</div>
+</div>

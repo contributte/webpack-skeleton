@@ -1,13 +1,15 @@
 <?php declare(strict_types = 1);
 
-namespace App\Presenters;
+namespace App\UI\Home;
 
+use App\UI\BasePresenter;
 use Nette\Application\UI\Form;
+use Nette\Utils\ArrayHash;
 use Nette\Utils\DateTime;
 use Nette\Utils\Html;
 use Nette\Utils\Strings;
 
-class HomepagePresenter extends BasePresenter
+class HomePresenter extends BasePresenter
 {
 
 	public function renderDefault(): void
@@ -33,15 +35,13 @@ class HomepagePresenter extends BasePresenter
 
 		$form->addText('username', 'Username')
 			->setRequired('Username is mandatory')
-			->setAttribute('placeholder', 'Type your name Mr.?');
+			->setHtmlAttribute('placeholder', 'Type your name Mr.?');
 
 		$form->addText('email', 'Email')
 			->setHtmlAttribute('placeholder', 'Type your e-mail')
 			->setOption('description', Html::el('span')->setHtml('Try to type <strong>cool@nette.org</strong> to see validation.'))
 			->setEmptyValue('@')
-			->addFilter(function ($email) {
-				return Strings::lower($email);
-			})
+			->addFilter(fn ($email) => Strings::lower($email))
 			->addRule($form::REQUIRED, 'E-mail is mandatory')
 			->addRule($form::EMAIL, 'Given e-mail is not e-mail');
 
@@ -51,20 +51,22 @@ class HomepagePresenter extends BasePresenter
 
 		$form->addSubmit('send', 'OK');
 
-		$form->onValidate[] = function (Form $form) {
+		$form->onValidate[] = function (Form $form): void {
+			$values = $form->getUnsafeValues(ArrayHash::class);
+
 			// Validate e-mail duplicities (against DB?)
-			if (Strings::endsWith($form->values->email, '@nette.org')) {
-				$form->addError(sprintf('E-mail "%s" is already picked', $form->values->email));
+			if (str_ends_with($values->email, '@nette.org')) {
+				$form->addError(sprintf('E-mail "%s" is already picked', $values->email));
 			}
 		};
 
-		$form->onSubmit[] = function () {
+		$form->onSubmit[] = function (): void {
 			// This method in invoked always
 			$this->redrawControl('userFormError');
 			$this->redrawControl('userFormOk');
 		};
 
-		$form->onSuccess[] = function () {
+		$form->onSuccess[] = function (): void {
 			// Some handling on success...
 		};
 
