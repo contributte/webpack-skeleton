@@ -7,10 +7,3 @@ updates:
     labels:
       - "dependencies"
       - "automerge"
-  - package-ecosystem: npm
-    directory: "/"
-    schedule:
-      interval: daily
-    labels:
-      - "dependencies"
-      - "automerge"
