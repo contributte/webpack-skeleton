@@ -13,4 +13,4 @@ parameters:
 
 	paths:
 		- app
-		- bin
+		- config
