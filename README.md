@@ -34,7 +34,7 @@ https://examples.contributte.org/webpack-skeleton/
 
 ## Installation
 
-You will need `PHP 8.0+` and [Composer](https://getcomposer.org/).
+You will need `PHP 8.1+` and [Composer](https://getcomposer.org/).
 
 Create project using composer.
 
