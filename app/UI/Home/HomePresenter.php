@@ -42,8 +42,8 @@ class HomePresenter extends BasePresenter
 			->setOption('description', Html::el('span')->setHtml('Try to type <strong>cool@nette.org</strong> to see validation.'))
 			->setEmptyValue('@')
 			->addFilter(fn ($email) => Strings::lower($email))
-			->addRule($form::REQUIRED, 'E-mail is mandatory')
-			->addRule($form::EMAIL, 'Given e-mail is not e-mail');
+			->addRule(Form::Required, 'E-mail is mandatory')
+			->addRule(Form::Email, 'Given e-mail is not e-mail');
 
 		$form->addInteger('age', 'Your age?')
 			->setHtmlAttribute('Are you young?')
@@ -52,7 +52,8 @@ class HomePresenter extends BasePresenter
 		$form->addSubmit('send', 'OK');
 
 		$form->onValidate[] = function (Form $form): void {
-			$values = $form->getUnsafeValues(ArrayHash::class);
+			$values = $form->getUntrustedValues();
+			assert($values instanceof ArrayHash);
 
 			// Validate e-mail duplicities (against DB?)
 			if (str_ends_with($values->email, '@nette.org')) {

@@ -14,4 +14,5 @@ jobs:
     name: "Phpunit"
     uses: contributte/.github/.github/workflows/phpunit-coverage.yml@v1
     with:
+      php: "8.4"
       make: "init coverage"
