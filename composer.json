@@ -20,7 +20,7 @@
   "require-dev": {
     "contributte/qa": "^0.4",
     "contributte/tester": "^0.4",
-    "contributte/phpstan": "^0.1",
+    "contributte/phpstan": "^0.3",
     "contributte/dev": "^0.6"
   },
   "autoload": {
