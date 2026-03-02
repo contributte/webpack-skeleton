@@ -4,7 +4,6 @@ namespace App\UI\Home;
 
 use App\UI\BasePresenter;
 use Nette\Application\UI\Form;
-use Nette\Utils\ArrayHash;
 use Nette\Utils\DateTime;
 use Nette\Utils\Html;
 use Nette\Utils\Strings;
@@ -53,11 +52,11 @@ class HomePresenter extends BasePresenter
 
 		$form->onValidate[] = function (Form $form): void {
 			$values = $form->getUntrustedValues();
-			assert($values instanceof ArrayHash);
+			$email = is_object($values) ? ($values->email ?? null) : ($values['email'] ?? null);
 
 			// Validate e-mail duplicities (against DB?)
-			if (str_ends_with($values->email, '@nette.org')) {
-				$form->addError(sprintf('E-mail "%s" is already picked', $values->email));
+			if (is_string($email) && str_ends_with($email, '@nette.org')) {
+				$form->addError(sprintf('E-mail "%s" is already picked', $email));
 			}
 		};
 
