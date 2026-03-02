@@ -52,7 +52,7 @@ class HomePresenter extends BasePresenter
 
 		$form->onValidate[] = function (Form $form): void {
 			$values = $form->getUntrustedValues();
-			$email = is_object($values) ? ($values->email ?? null) : ($values['email'] ?? null);
+			$email = ((array) $values)['email'] ?? null;
 
 			// Validate e-mail duplicities (against DB?)
 			if (is_string($email) && str_ends_with($email, '@nette.org')) {
