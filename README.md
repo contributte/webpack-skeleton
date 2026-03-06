@@ -2,7 +2,7 @@
 
 <p align=center>
   <a href="https://github.com/contributte/webpack-skeleton/actions"><img src="https://badgen.net/github/checks/contributte/webpack-skeleton/master"></a>
-  <a href="https://coveralls.io/r/contributte/webpack-skeleton"><img src="https://badgen.net/coveralls/c/github/contributte/webpack-skeleton"></a>
+  <a href="https://codecov.io/gh/contributte/webpack-skeleton"><img src="https://badgen.net/codecov/c/github/contributte/webpack-skeleton"></a>
   <a href="https://packagist.org/packages/contributte/webpack-skeleton"><img src="https://badgen.net/packagist/dm/contributte/webpack-skeleton"></a>
   <a href="https://packagist.org/packages/contributte/webpack-skeleton"><img src="https://badgen.net/packagist/v/contributte/webpack-skeleton"></a>
 </p>
