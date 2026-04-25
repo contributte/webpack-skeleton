@@ -15,7 +15,7 @@
   "require": {
     "php": ">=8.4",
 
-    "contributte/nella": "^0.2.0"
+    "contributte/nella": "^0.3.0"
   },
   "require-dev": {
     "contributte/qa": "^0.4",
