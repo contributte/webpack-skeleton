@@ -1,124 +1,57 @@
-![](https://heatbadger.now.sh/github/readme/contributte/webpack-skeleton/)
+# Webpack skeleton
 
-<p align=center>
-  <a href="https://github.com/contributte/webpack-skeleton/actions"><img src="https://badgen.net/github/checks/contributte/webpack-skeleton/master"></a>
-  <a href="https://codecov.io/gh/contributte/webpack-skeleton"><img src="https://badgen.net/codecov/c/github/contributte/webpack-skeleton"></a>
-  <a href="https://packagist.org/packages/contributte/webpack-skeleton"><img src="https://badgen.net/packagist/dm/contributte/webpack-skeleton"></a>
-  <a href="https://packagist.org/packages/contributte/webpack-skeleton"><img src="https://badgen.net/packagist/v/contributte/webpack-skeleton"></a>
-</p>
-<p align=center>
-  <a href="https://packagist.org/packages/contributte/webpack-skeleton"><img src="https://badgen.net/packagist/php/contributte/webpack-skeleton"></a>
-  <a href="https://github.com/contributte/webpack-skeleton"><img src="https://badgen.net/github/license/contributte/webpack-skeleton"></a>
-  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
-  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
-  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
-</p>
+A Nette application skeleton with Webpack 5, Tailwind CSS, and Vue support.
 
-<p align=center>
-Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
-</p>
+## Requirements
 
-<p align=center>
-	<img src="https://api.microlink.io?url=https%3A%2F%2Fexamples.contributte.org%2Fwebpack-skeleton%2F&overlay.browser=light&screenshot=true&meta=false&embed=screenshot.url">
-</p>
+- PHP 8.4 or newer
+- [Composer](https://getcomposer.org/)
+- Node.js and npm
 
------
-
-## Goal
-
-Main goal is to provide webpack starter-kit project for Nette developers.
-
-## Demo
-
-https://examples.contributte.org/webpack-skeleton/
-
-## Installation
-
-You will need `PHP 8.4+` and [Composer](https://getcomposer.org/).
-
-Create project using composer.
+## Create a project
 
 ```bash
-composer create-project -s dev contributte/webpack-skeleton acme
+composer create-project contributte/webpack-skeleton acme
+cd acme
+make init
+make project
+npm ci
 ```
 
-Install Composer dependencies: `composer install` or `make install`
+`make init` creates `config/local.neon` from `config/local.neon.example`. `make project` installs Composer dependencies and prepares writable runtime directories. It does not install npm dependencies.
 
-Install NPM dependencies: `npm install` or `make install`
+## Local development
 
-Now you have application installed. It's time to run it.
-
-## Startup
-
-**Backend**
-
-The easiest way is to use php built-in web server.
+Start the PHP application:
 
 ```bash
-php -S 0.0.0.0:8000 -t www
+make dev
 ```
 
-Or via `make dev`.
+Open [http://localhost:8000](http://localhost:8000). The development server uses `www/` as its document root.
 
-Then visit [http://localhost:8000](http://localhost:8000) in your browser.
+In a second terminal, compile frontend assets as needed:
 
-**Frontend**
+```bash
+npm run start  # development build
+npm run watch  # rebuild on changes
+npm run build  # production build
+npm run dev    # Webpack development server
+```
 
-If you want to compile assets, call `npm run start`.
+`npm run dev` serves the Webpack development server at [http://localhost:8080](http://localhost:8080) and proxies requests to the PHP server at `localhost:8000` by default. Override the host and ports with `WEBPACK_DEV_SERVER_HOST`, `WEBPACK_DEV_SERVER_PORT`, `WEBPACK_DEV_SERVER_PROXY_HOST`, and `WEBPACK_DEV_SERVER_PROXY_PORT`.
 
-If you need watcher, call `npm run watch`, it will watch your codebase and rebuild assets.
+Webpack writes frontend bundles to `www/dist/`. The configured entry points are `assets/front.js` and `assets/admin.js`.
 
-If you want build for production, call `npm run build`.
+## Configuration
 
-If you want start webpack development server with HRM, call `npm run dev`, open [http://localhost:8080](http://localhost:8080) in your browser.
+Shared application configuration is in `config/config.neon`. Keep local parameters and service overrides in the ignored `config/local.neon` file created by `make init`.
 
-Or via `make webpack`.
+## Quality assurance
 
-## Features
+```bash
+make qa
+make tests
+```
 
-- :+1: Nette 3+
-- :+1: Webpack 5+
-    - :tada: extracting JS to single bundle
-    - :tada: extracting CSS to single file
-    - :tada: more bundles (front/admin/vendor)
-- :+1: Snippets
-    - :tada: few snippets
-- :+1: Nette Form
-    - :tada: AJAX submitting
-    - :tada: form builder
-        - empty value on control (`@` in email)
-        - validation rules (filled + email)
-        - simple filter (transform email to lowercase)
-        - onValidate / onSubmit / onSuccess
-    - :tada: manual rendering
-        - success snippet / error snippet
-        - required class on form-group
-        - description on control
-
-## Screenshots
-
-<p align=center>
-	<img src="https://raw.githubusercontent.com/contributte/webpack-skeleton/master/.docs/webpack.png">
-</p>
-
-<p align=center>
-	<img src="https://raw.githubusercontent.com/contributte/webpack-skeleton/master/.docs/phpserver.png">
-</p>
-
-<p align=center>
-	<img src="https://raw.githubusercontent.com/contributte/webpack-skeleton/master/.docs/web.png">
-</p>
-
-## Development
-
-See [how to contribute](https://contributte.org/contributing.html) to this package.
-
-This package is currently maintaining by these authors.
-
-<a href="https://github.com/f3l1x">
-	<img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
-</a>
-
------
-
-Consider to [support](https://contributte.org/partners.html) **contributte** development team. Also thank you for using this project.
+`make qa` runs coding-standard and PHPStan checks. `make tests` runs Nette Tester tests from `tests/`.
