@@ -30,21 +30,46 @@ A Nette application skeleton with Webpack 5, Tailwind CSS, and Vue support.
 
 Requirements:
 
-- PHP 8.4 or newer
+- [PHP](https://www.php.net/downloads.php) 8.4 or newer
 - [Composer](https://getcomposer.org/)
-- Node.js and npm
+- [Node.js](https://nodejs.org/) with [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [GNU Make](https://www.gnu.org/software/make/)
 
-Create a new project and install its dependencies:
+1. Create a new project.
 
 ```bash
 composer create-project -s dev contributte/webpack-skeleton acme
+```
+
+The `-s dev` option is required because the skeleton is distributed from its development branch.
+
+2. Enter the project directory.
+
+```bash
 cd acme
+```
+
+3. Create the local configuration.
+
+```bash
 make init
+```
+
+This copies `config/local.neon.example` to the ignored `config/local.neon` file.
+
+4. Install PHP dependencies and prepare writable directories.
+
+```bash
 make project
+```
+
+5. Install frontend dependencies from `package-lock.json`.
+
+```bash
 npm ci
 ```
 
-`make init` creates `config/local.neon` from `config/local.neon.example`. `make project` installs Composer dependencies and prepares writable runtime directories. It does not install npm dependencies.
+The project is now ready for [local development](#usage).
 
 ## Usage
 
@@ -81,6 +106,29 @@ Webpack writes frontend bundles to `www/dist/`. The configured entry points are 
 ## Configuration
 
 Shared application configuration is in `config/config.neon`. Keep local parameters and service overrides in the ignored `config/local.neon` file created by `make init`.
+
+## Makefile
+
+The [Makefile](Makefile) provides these targets:
+
+| Target | Description |
+|---|---|
+| `make init` | Copies `config/local.neon.example` to `config/local.neon`. |
+| `make project` | Runs `make install` and `make setup`. |
+| `make install` | Installs PHP dependencies with `composer install`. |
+| `make setup` | Creates writable `var/tmp` and `var/log` directories. |
+| `make clean` | Removes generated files from `var/tmp` and `var/log`, preserving `.gitignore`. |
+| `make dev` | Starts the PHP development server on `0.0.0.0:8000` with Nette debug mode enabled. |
+| `make build` | Runs the one-time development asset build through `npm run start`. |
+| `make webpack` | Starts the Webpack development server through `npm run dev`. |
+| `make qa` | Runs `make cs` and `make phpstan`. |
+| `make cs` | Checks `app/` and `tests/` with CodeSniffer. |
+| `make csf` | Fixes supported coding-style issues in `app/` and `tests/`. |
+| `make phpstan` | Runs PHPStan with `phpstan.neon` and a 512 MB memory limit. |
+| `make tests` | Runs the Nette Tester suite in `tests/`. |
+| `make coverage` | Runs the test suite and writes coverage to `coverage.xml`. |
+| `make docker-up` | Starts services from [Docker Compose](https://docs.docker.com/compose/) in the foreground. |
+| `make deploy` | Cleans runtime files, prepares the project, builds assets, and cleans runtime files again. |
 
 ## Testing
 
