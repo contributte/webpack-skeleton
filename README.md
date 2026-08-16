@@ -26,16 +26,18 @@ A Nette application skeleton with Webpack 5, Tailwind CSS, and Vue support.
   <a href="https://examples.contributte.org/webpack-skeleton/"><img src="https://api.microlink.io?url=https%3A%2F%2Fexamples.contributte.org%2Fwebpack-skeleton%2F&amp;overlay.browser=light&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url" alt="Webpack skeleton demo"></a>
 </p>
 
-## Requirements
+## Installation
+
+Requirements:
 
 - PHP 8.4 or newer
 - [Composer](https://getcomposer.org/)
 - Node.js and npm
 
-## Create a project
+Create a new project and install its dependencies:
 
 ```bash
-composer create-project contributte/webpack-skeleton acme
+composer create-project -s dev contributte/webpack-skeleton acme
 cd acme
 make init
 make project
@@ -44,7 +46,9 @@ npm ci
 
 `make init` creates `config/local.neon` from `config/local.neon.example`. `make project` installs Composer dependencies and prepares writable runtime directories. It does not install npm dependencies.
 
-## Local development: PHP application with asset watcher
+## Usage
+
+### Watcher
 
 Run these commands in separate terminals to serve the PHP application and rebuild assets on changes:
 
@@ -58,9 +62,9 @@ npm run watch
 
 Open [http://localhost:8000](http://localhost:8000). The PHP development server uses `www/` as its document root. Use `npm run start` for a one-time development build or `npm run build` for a production build.
 
-## Local development: Webpack development server and proxy
+### Dev server
 
-Alternatively, start the PHP application first, then start the Webpack development server in a second terminal:
+For hot module replacement, start the PHP application and Webpack development server in separate terminals:
 
 ```bash
 make dev
@@ -78,7 +82,7 @@ Webpack writes frontend bundles to `www/dist/`. The configured entry points are 
 
 Shared application configuration is in `config/config.neon`. Keep local parameters and service overrides in the ignored `config/local.neon` file created by `make init`.
 
-## Quality assurance
+## Testing
 
 ```bash
 make qa
@@ -86,3 +90,21 @@ make tests
 ```
 
 `make qa` runs coding-standard and PHPStan checks. `make tests` runs Nette Tester tests from `tests/`.
+
+## Screenshots
+
+### Webpack
+
+![Webpack compilation](.docs/webpack.png)
+
+### PHP server
+
+![PHP development server](.docs/phpserver.png)
+
+### Application
+
+![Webpack skeleton application](.docs/web.png)
+
+## Development
+
+See [Contributte development guidelines](https://contributte.org/contributing.html) before contributing.
