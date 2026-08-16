@@ -20,26 +20,33 @@ npm ci
 
 `make init` creates `config/local.neon` from `config/local.neon.example`. `make project` installs Composer dependencies and prepares writable runtime directories. It does not install npm dependencies.
 
-## Local development
+## Local development: PHP application with asset watcher
 
-Start the PHP application:
+Run these commands in separate terminals to serve the PHP application and rebuild assets on changes:
 
 ```bash
 make dev
 ```
 
-Open [http://localhost:8000](http://localhost:8000). The development server uses `www/` as its document root.
-
-In a second terminal, compile frontend assets as needed:
-
 ```bash
-npm run start  # development build
-npm run watch  # rebuild on changes
-npm run build  # production build
-npm run dev    # Webpack development server
+npm run watch
 ```
 
-`npm run dev` serves the Webpack development server at [http://localhost:8080](http://localhost:8080) and proxies requests to the PHP server at `localhost:8000` by default. Override the host and ports with `WEBPACK_DEV_SERVER_HOST`, `WEBPACK_DEV_SERVER_PORT`, `WEBPACK_DEV_SERVER_PROXY_HOST`, and `WEBPACK_DEV_SERVER_PROXY_PORT`.
+Open [http://localhost:8000](http://localhost:8000). The PHP development server uses `www/` as its document root. Use `npm run start` for a one-time development build or `npm run build` for a production build.
+
+## Local development: Webpack development server and proxy
+
+Alternatively, start the PHP application first, then start the Webpack development server in a second terminal:
+
+```bash
+make dev
+```
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:8080](http://localhost:8080). The Webpack development server proxies requests to the PHP server at `localhost:8000` by default. Override the host and ports with `WEBPACK_DEV_SERVER_HOST`, `WEBPACK_DEV_SERVER_PORT`, `WEBPACK_DEV_SERVER_PROXY_HOST`, and `WEBPACK_DEV_SERVER_PROXY_PORT`.
 
 Webpack writes frontend bundles to `www/dist/`. The configured entry points are `assets/front.js` and `assets/admin.js`.
 
