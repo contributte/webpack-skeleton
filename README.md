@@ -73,20 +73,6 @@ The project is now ready for [local development](#usage).
 
 ## Usage
 
-### Watcher
-
-Run these commands in separate terminals to serve the PHP application and rebuild assets on changes:
-
-```bash
-make dev
-```
-
-```bash
-npm run watch
-```
-
-Open [http://localhost:8000](http://localhost:8000). The PHP development server uses `www/` as its document root. Use `npm run start` for a one-time development build or `npm run build` for a production build.
-
 ### Dev server
 
 For hot module replacement, start the PHP application and Webpack development server in separate terminals:
@@ -99,7 +85,34 @@ make dev
 npm run dev
 ```
 
-Open [http://localhost:8080](http://localhost:8080). The Webpack development server proxies requests to the PHP server at `localhost:8000` by default. Override the host and ports with `WEBPACK_DEV_SERVER_HOST`, `WEBPACK_DEV_SERVER_PORT`, `WEBPACK_DEV_SERVER_PROXY_HOST`, and `WEBPACK_DEV_SERVER_PROXY_PORT`.
+Open [http://localhost:8080](http://localhost:8080).
+
+The Webpack development server proxies requests to the PHP server at `localhost:8000` by default.
+
+The home page confirms a successful setup with AJAX snippet reloads, an example form, and a link to the admin page.
+
+Override the Webpack server and proxy addresses independently:
+
+- `WEBPACK_DEV_SERVER_HOST` defaults to `localhost`.
+- `WEBPACK_DEV_SERVER_PORT` defaults to `8080`.
+- `WEBPACK_DEV_SERVER_PROXY_HOST` defaults to `localhost`.
+- `WEBPACK_DEV_SERVER_PROXY_PORT` defaults to `8000`.
+
+### Watcher
+
+To serve the PHP application directly and rebuild assets on changes, run these commands in separate terminals:
+
+```bash
+make dev
+```
+
+```bash
+npm run watch
+```
+
+Open [http://localhost:8000](http://localhost:8000).
+
+The PHP development server uses `www/` as its document root. Use `npm run start` for a one-time development build or `npm run build` for a production build.
 
 Webpack writes frontend bundles to `www/dist/`. The configured entry points are `assets/front.js` and `assets/admin.js`.
 
@@ -154,5 +167,7 @@ make tests
 ![Webpack skeleton application](.docs/web.png)
 
 ## Development
+
+This skeleton is maintained by [Contributte](https://contributte.org). Report issues and submit changes through the [GitHub repository](https://github.com/contributte/webpack-skeleton).
 
 See [Contributte development guidelines](https://contributte.org/contributing.html) before contributing.
