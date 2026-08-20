@@ -57,11 +57,13 @@ make init
 
 This copies `config/local.neon.example` to the ignored `config/local.neon` file.
 
-4. Install PHP dependencies and prepare writable directories.
+4. Prepare writable directories.
 
 ```bash
-make project
+make setup
 ```
+
+Composer installs PHP dependencies as part of `create-project`.
 
 5. Install frontend dependencies from `package-lock.json`.
 
@@ -69,7 +71,7 @@ make project
 npm ci
 ```
 
-The project is now ready for [local development](#usage).
+At present, a clean `npm ci` reports that `package.json` and `package-lock.json` are out of sync around the `awesome-typescript-loader` TypeScript peer dependency. The lockfile must be reconciled in the project before the frontend development commands below can be used from a clean checkout; do not substitute an untracked dependency tree for a reproducible install.
 
 ## Usage
 
@@ -85,7 +87,7 @@ make dev
 npm run dev
 ```
 
-Open [http://localhost:8080](http://localhost:8080).
+Open [http://localhost:8080](http://localhost:8080). This Webpack development-server URL is the interactive development entry point; verify the home page, its AJAX snippet reloads, the example form, and the admin-page link.
 
 The Webpack development server proxies requests to the PHP server at `localhost:8000` by default.
 
@@ -110,11 +112,13 @@ make dev
 npm run watch
 ```
 
-Open [http://localhost:8000](http://localhost:8000).
+Open [http://localhost:8000](http://localhost:8000). This is the passive-watch alternative without the Webpack development-server proxy or hot module replacement.
 
-The PHP development server uses `www/` as its document root. Use `npm run start` for a one-time development build or `npm run build` for a production build.
+The PHP development server uses `www/` as its document root. Use `npm run start` or `make build` for a one-time development build. Use `npm run build` for a production build.
 
 Webpack writes frontend bundles to `www/dist/`. The configured entry points are `assets/front.js` and `assets/admin.js`.
+
+Production builds hash CSS filenames, but the checked-in Latte layouts reference the stable `front.bundle.css` and `admin.bundle.css` names. Resolve that integration (for example with a manifest) before treating `npm run build` output as deployable. JavaScript filenames remain stable in the current configuration.
 
 ## Configuration
 
@@ -127,12 +131,12 @@ The [Makefile](Makefile) provides these targets:
 | Target | Description |
 |---|---|
 | `make init` | Copies `config/local.neon.example` to `config/local.neon`. |
-| `make project` | Runs `make install` and `make setup`. |
+| `make project` | Runs `make install` and `make setup`; useful after checkout, but redundant immediately after `composer create-project`. |
 | `make install` | Installs PHP dependencies with `composer install`. |
 | `make setup` | Creates writable `var/tmp` and `var/log` directories. |
 | `make clean` | Removes generated files from `var/tmp` and `var/log`, preserving `.gitignore`. |
 | `make dev` | Starts the PHP development server on `0.0.0.0:8000` with Nette debug mode enabled. |
-| `make build` | Runs the one-time development asset build through `npm run start`. |
+| `make build` | Runs the one-time development asset build through `npm run start`; it is not the production build. |
 | `make webpack` | Starts the Webpack development server through `npm run dev`. |
 | `make qa` | Runs `make cs` and `make phpstan`. |
 | `make cs` | Checks `app/` and `tests/` with CodeSniffer. |
@@ -140,7 +144,6 @@ The [Makefile](Makefile) provides these targets:
 | `make phpstan` | Runs PHPStan with `phpstan.neon` and a 512 MB memory limit. |
 | `make tests` | Runs the Nette Tester suite in `tests/`. |
 | `make coverage` | Runs the test suite and writes coverage to `coverage.xml`. |
-| `make docker-up` | Starts services from [Docker Compose](https://docs.docker.com/compose/) in the foreground. |
 | `make deploy` | Cleans runtime files, prepares the project, builds assets, and cleans runtime files again. |
 
 ## Testing
